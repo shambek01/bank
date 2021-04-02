@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Font Awesome -->
+    <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+            rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+            rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.2.0/mdb.min.css"
+            rel="stylesheet"
+    />
+    <script
+            type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.2.0/mdb.min.js"
+    ></script>
+</head>
+<body>
+    <div class="container">
+    <div sec:authorize="isAuthenticated()">
+        <div th:text="${#authentication.name}"></div>
+        <a href="/changepassword">Изменить пароль</a><br>
+        <a href="/logout">Выйти</a><br>
+    </div>
+    <div sec:authorize="isAnonymous()">
+        <a href="/registration">Регистрация</a>
+        <a href="/login">Войти</a>
+    </div>
+    <a href="/transfer">Перевод</a><br>
+    <a href="/allaccounts">Ваши карты</a><br>
+    <a href="/payment">Платежи</a><br>
+    <a href="/registeraccount">Зарегистрировать новый счет</a><br>
+    <a href="/history">История</a><br>
+
+
+    </div>
+</body>
+</html>
